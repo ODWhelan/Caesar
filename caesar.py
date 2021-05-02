@@ -7,5 +7,21 @@ while True:
         break
     else:
         print("Please only enter English alphabet letters.\n")
-num = input("Enter the cipher's magnitude:\n")
+num = int(input("Enter the cipher's magnitude:\n"))
+num = num % 26
+if state == 's':
+    num *= -1
 
+output = ""
+
+for c in string:
+    ascii = ord(c)
+    ascii += num
+    if ascii > 122:
+        ascii -= 26
+    elif ascii < 97:
+        ascii += 26
+    c = chr(ascii)
+    output += c
+
+print("Your coded message is: " + output)
