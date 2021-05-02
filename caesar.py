@@ -17,9 +17,9 @@ output = ""
 for c in string:
     ascii = ord(c)
     ascii += num
-    if ascii > 122:
+    if ascii > 122 or (ascii > 90 and ord(c) < 90):
         ascii -= 26
-    elif ascii < 97:
+    elif (ascii < 97 and ord(c) > 97) or ascii < 65:
         ascii += 26
     c = chr(ascii)
     output += c
